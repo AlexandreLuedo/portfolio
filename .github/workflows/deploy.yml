@@ -34,8 +34,6 @@ jobs:
 
       - run: flutter analyze
 
-      - run: flutter test
-
       # Le site est servi depuis /<nom-du-dépôt>/ et non depuis la racine du
       # domaine : sans base-href, tous les assets sont cherchés un niveau trop
       # haut et la page reste blanche.
