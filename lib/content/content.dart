@@ -1,9 +1,3 @@
-/// TOUT le texte du site est ici. C'est le seul fichier à éditer pour changer
-/// le contenu : aucune ligne d'interface ne s'y trouve.
-///
-/// Écris la ponctuation normalement, avec une espace simple avant `: ; ! ?` :
-/// l'affichage la remplace tout seul par une espace fine insécable, comme le
-/// veut la typographie française (voir `lib/french.dart`).
 library;
 
 import 'models.dart';
@@ -13,11 +7,8 @@ import 'models.dart';
 // ─────────────────────────────────────────────────────────────────────────────
 
 /// Photo ronde en haut de page.
-///
-/// Mets ton fichier dans `assets/images/` et écris son chemin ici, par exemple
-/// `'assets/images/photo.jpg'`. Tant que c'est `null`, une silhouette grise
-/// s'affiche à la place.
-const String? photo = 'images/profile.webp';
+/// null si pas de photo
+const String? photo = null;
 
 const String fullName = 'Hadrien K';
 const String pseudo = '@AlexandreLuedo';
@@ -29,7 +20,7 @@ const String taglinePlain =
     'libres.';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Projets principaux — avec schéma, description longue, et jusqu'à 3 boutons.
+// Projets principaux — avec schéma.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const List<Project> mainProjects = [
@@ -56,7 +47,7 @@ const List<Project> mainProjects = [
       'Voici les technologies employées pour faire tourner les serveurs :',
     ],
     links: [
-      ProjectLink(LinkKind.code, 'https://github.com/AlexandreLuedo/Ansible'),
+      ProjectLink(LinkKind.code, 'https://gitlab.com/AlexandreLuedo/Ansible'),
     ],
   ),
   Project(
@@ -83,7 +74,7 @@ const List<Project> mainProjects = [
     links: [
       ProjectLink(
         LinkKind.code,
-        'https://github.com/AlexandreLuedo/Ganache.lab',
+        'https://gitlab.com/AlexandreLuedo/Ganache.lab',
       ),
       ProjectLink(
         LinkKind.demo,
@@ -94,7 +85,7 @@ const List<Project> mainProjects = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Projets annexes — pas de schéma, volontairement plus légers.
+// Projets annexes — pas de schéma.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const List<Project> sideProjects = [
@@ -115,7 +106,7 @@ const List<Project> sideProjects = [
     links: [
       ProjectLink(
         LinkKind.code,
-        'https://github.com/AlexandreLuedo/Converter.lab',
+        'https://gitlab.com/AlexandreLuedo/Converter.lab',
       ),
       ProjectLink(
         LinkKind.demo,
@@ -145,10 +136,23 @@ const List<Project> sideProjects = [
     links: [
       ProjectLink(
         LinkKind.code,
-        'https://github.com/AlexandreLuedo/Groupuscule-Minecraft-Server',
+        'https://gitlab.com/AlexandreLuedo/Groupuscule-Minecraft-Server',
       ),
     ],
   ),
+  Project(
+    title: 'Python', 
+    blurb: 'Mon dépot de Scripts python. '
+    'J\'utilise ce language pour automatiser certains procédés de manière plus poussé et lisible, ' 
+    'comme le scan et l\'archivage de fichiers.',
+    tech: [emacs, git, python],
+    links: [
+      ProjectLink(
+        LinkKind.code, 
+        'https://gitlab.com/AlexandreLuedo/Python'
+        ),
+    ],
+    ),
   Project(
     title: 'Doc',
     blurb:
@@ -157,7 +161,7 @@ const List<Project> sideProjects = [
         'lisible directement sur GitHub.',
     tech: [emacs, git, english],
     links: [
-      ProjectLink(LinkKind.code, 'https://github.com/AlexandreLuedo/DOCU'),
+      ProjectLink(LinkKind.code, 'https://gitlab.com/AlexandreLuedo/DOCU'),
     ],
   ),
   Project(
@@ -166,18 +170,19 @@ const List<Project> sideProjects = [
         'Mon portfolio retracant une partie de mes projets',
     tech: [flutter, git],
     links: [
-      ProjectLink(LinkKind.code, 'https://github.com/AlexandreLuedo/portfolio'),
-    ]
+      ProjectLink(LinkKind.demo, 'https://alexandreluedo.github.io/portfolio/'),
+      ProjectLink(LinkKind.code, 'https://gitlab.com/AlexandreLuedo/portfolio'),
+    ],
   ),
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Outils et technos
-//
-// Chaque techno est déclarée une fois ici, puis réutilisée dans les projets.
-// La deuxième chaîne est l'explication qui apparaît au survol ou au clic :
-// elle s'adresse à quelqu'un d'extérieur au métier.
 // ─────────────────────────────────────────────────────────────────────────────
+const python = Tech(
+  'Python',
+  'Langage de programmation polyvalent, reconnu pour sa syntaxe simple et facile à lire.',
+);
 
 const linux = Tech(
   'Linux',
@@ -250,9 +255,12 @@ const List<ToolGroup> toolGroups = [
   ),
   ToolGroup(
     title: 'Ma stack',
-    items: [ansible, docker, tailscale, powerdns, chrony, pki, bash, flutter],
+    items: [ansible, docker, tailscale, powerdns, chrony, pki, bash, flutter, python],
   ),
-  ToolGroup(title: 'Langues pratiquées', items: [francais, english]),
+  ToolGroup(
+    title: 'Langues pratiquées', 
+    items: [francais, english],
+  ),
 ];
 
 
@@ -262,8 +270,9 @@ const List<ToolGroup> toolGroups = [
 
 const List<ContactLink> contacts = [
   ContactLink('Mail', 'mailto:alexandre.luedo@pm.me'),
-  ContactLink('GitHub', 'https://github.com/AlexandreLuedo'),
+  ContactLink('Gitlab', 'https://gitlab.com/AlexandreLuedo'),
   ContactLink('LinkedIn', 'https://www.linkedin.com/in/hadrien-k-823a2a205'),
+
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
